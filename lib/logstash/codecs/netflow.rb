@@ -285,12 +285,6 @@ class LogStash::Codecs::Netflow < LogStash::Codecs::Base
             field_length = field.field_length
             enterprise_id = field.enterprise ? field.enterprise_id : 0
 
-            if field.field_length == 0xffff
-              # FIXME
-              @logger.warn("Cowardly refusing to deal with variable length encoded field", :type => field_type, :enterprise => enterprise_id)
-              throw :field
-            end
-
             if enterprise_id == 0
               case field_type
               when 291, 292, 293
@@ -306,7 +300,7 @@ class LogStash::Codecs::Netflow < LogStash::Codecs::Base
           end
           # FIXME Source IP address required in key
           key = "#{flowset.observation_domain_id}|#{template.template_id}"
-          @ipfix_templates[key, @cache_ttl] = BinData::Struct.new(:endian => :big, :fields => fields)
+          @ipfix_templates[key, @cache_ttl] =  fields
           # Purge any expired templates
           @ipfix_templates.cleanup!
         end
@@ -321,12 +315,6 @@ class LogStash::Codecs::Netflow < LogStash::Codecs::Base
             field_length = field.field_length
             enterprise_id = field.enterprise ? field.enterprise_id : 0
 
-            if field.field_length == 0xffff
-              # FIXME
-              @logger.warn("Cowardly refusing to deal with variable length encoded field", :type => field_type, :enterprise => enterprise_id)
-              throw :field
-            end
-
             if enterprise_id == 0
               case field_type
               when 291, 292, 293
@@ -342,7 +330,7 @@ class LogStash::Codecs::Netflow < LogStash::Codecs::Base
           end
           # FIXME Source IP address required in key
           key = "#{flowset.observation_domain_id}|#{template.template_id}"
-          @ipfix_templates[key, @cache_ttl] = BinData::Struct.new(:endian => :big, :fields => fields)
+          @ipfix_templates[key, @cache_ttl] = fields
           # Purge any expired templates
           @ipfix_templates.cleanup!
         end
@@ -350,13 +338,54 @@ class LogStash::Codecs::Netflow < LogStash::Codecs::Base
     when 256..65535
       # Data flowset
       key = "#{flowset.observation_domain_id}|#{record.flowset_id}"
-      template = @ipfix_templates[key]
+      fields = @ipfix_templates[key]
 
-      unless template
+      unless fields
         @logger.warn("No matching template for flow id #{record.flowset_id}")
         next
       end
-
+      i=0
+      l= []
+      fields.each do |field|
+        if field[0] == :string and field[2].has_key?(:length)
+          if field[2][:length] == 0xffff
+            @logger.warn("field #{field[1]} is varaible length, i= #{i} the string is #{record.flowset_data.unpack('H*')}   fields = #{fields}")
+            if record.flowset_data[i, i+1].unpack('C')[0] == 255
+                l.push([:uint8, nil])
+                l.push([:uint16, nil])
+                len =  record.flowset_data[i+1,i+3].unpack('S')[0]
+                l.push([:string, field[1], {:length=>len, :trim_padding => true}])
+                i+=(3+len)
+            else
+                l.push([:uint8, nil])
+                len =  record.flowset_data[i,i+1].unpack('C')[0]
+                l.push([:string, field[1], {:length=>len, :trim_padding => true}])
+                i+=(1+len)
+            end
+          else
+            l.push(field)
+            i += field[2][:length]
+          end
+        else
+          if field[0] == :uint32
+             i +=4
+          elsif  field[0] == :uint8
+            i+=1
+          elsif  field[0] == :uint16
+            i+=2
+          elsif  field[0] == :uint64
+            i+=8
+          elsif field[0] == :skip
+            i+=field[2][:length]
+          elsif field[0] == :ip4_addr
+            i+=4
+          elsif field[0] == :ip6_addr
+            i+=16
+          end
+          l.push(field)
+        end
+      end
+      template = BinData::Struct.new(:endian => :big, :fields =>l)
       array = BinData::Array.new(:type => template, :read_until => :eof)
       records = array.read(record.flowset_data)
 
