@@ -2331,3 +2331,367 @@
   433:
   - :uint64
   - :reverseIgnoredLayer2FrameTotalCount
+5951:
+  128:
+  - :uint32
+  - :netscalerRoundTripTime
+  129:
+  - :uint32
+  - :netscalerTransactionId
+  130:
+  - :string
+  - :netscalerHttpReqUrl
+  131:
+  - :string
+  - :netscalerHttpReqCookie
+  132:
+  - :uint64
+  - :netscalerFlowFlags
+  133:
+  - :uint32
+  - :netscalerConnectionId
+  134:
+  - :uint8
+  - :netscalerSyslogPriority
+  135:
+  - :string
+  - :netscalerSyslogMessage
+  136:
+  - :uint64
+  - :netscalerSyslogTimestamp
+  140:
+  - :string
+  - :netscalerHttpReqReferer
+  141:
+  - :string
+  - :netscalerHttpReqMethod
+  142:
+  - :string
+  - :netscalerHttpReqHost
+  143:
+  - :string
+  - :netscalerHttpReqUserAgent
+  144:
+  - :uint16
+  - :netscalerHttpRspStatus
+  145:
+  - :uint64
+  - :netscalerHttpRspLen
+  146:
+  - :uint64
+  - :netscalerServerTTFB
+  147:
+  - :uint64
+  - :netscalerServerTTLB
+  150:
+  - :uint32
+  - :netscalerAppNameIncarnationNumber
+  151:
+  - :uint32
+  - :netscalerAppNameAppId
+  152:
+  - :string
+  - :netscalerAppName
+  153:
+  - :uint64
+  - :netscalerHttpReqRcvFB
+  156:
+  - :uint64
+  - :netscalerHttpReqForwFB
+  157:
+  - :uint64
+  - :netscalerHttpResRcvFB
+  158:
+  - :uint64
+  - :netscalerHttpResForwFB
+  159:
+  - :uint64
+  - :netscalerHttpReqRcvLB
+  160:
+  - :uint64
+  - :netscalerHttpReqForwLB
+  161:
+  - :uint32
+  - :netscalerMainPageId
+  162:
+  - :uint32
+  - :netscalerMainPageCoreId
+  163:
+  - :string
+  - :netscalerHttpClientInteractionStartTime
+  164:
+  - :string
+  - :netscalerHttpClientRenderEndTime
+  165:
+  - :string
+  - :netscalerHttpClientRenderStartTime
+  167:
+  - :string
+  - :netscalerAppTemplateName
+  168:
+  - :string
+  - :netscalerHttpClientInteractionEndTime
+  169:
+  - :uint64
+  - :netscalerHttpResRcvLB
+  170:
+  - :uint64
+  - :netscalerHttpResForwLB
+  171:
+  - :uint32
+  - :netscalerAppUnitNameAppId
+  172:
+  - :uint32
+  - :netscalerDbLoginFlags
+  173:
+  - :uint8
+  - :netscalerDbReqType
+  174:
+  - :uint8
+  - :netscalerDbProtocolName
+  175:
+  - :string
+  - :netscalerDbUserName
+  176:
+  - :string
+  - :netscalerDbDatabaseName
+  177:
+  - :string
+  - :netscalerDbCltHostName
+  178:
+  - :string
+  - :netscalerDbReqString
+  179:
+  - :string
+  - :netscalerDbRespStatusString
+  180:
+  - :uint64
+  - :netscalerDbRespStatus
+  181:
+  - :uint64
+  - :netscalerDbRespLength
+  182:
+  - :uint32
+  - :netscalerClientRTT
+  183:
+  - :string
+  - :netscalerHttpContentType
+  185:
+  - :string
+  - :netscalerHttpReqAuthorization
+  186:
+  - :string
+  - :netscalerHttpReqVia
+  187:
+  - :string
+  - :netscalerHttpResLocation
+  188:
+  - :string
+  - :netscalerHttpResSetCookie
+  189:
+  - :string
+  - :netscalerHttpResSetCookie2
+  190:
+  - :string
+  - :netscalerHttpReqXForwardedFor
+  192:
+  - :string
+  - :netscalerConnectionChainID
+  193:
+  - :uint8
+  - :netscalerConnectionChainHopCount
+  200:
+  - :string
+  - :netscalerICASessionGuid
+  201:
+  - :string
+  - :netscaleIcaClientVersion
+  202:
+  - :uint16
+  - :netscalerIcaClientType
+  203:
+  - :ip4_addr
+  - :netscalerIcaClientIP
+  204:
+  - :string
+  - :netscalerIcaClientHostName
+  205:
+  - :string
+  - :netscalerAaaUsername
+  207:
+  - :string
+  - :netscalerIcaDomainName
+  208:
+  - :uint16
+  - :netscalerIcaClientLauncher
+  209:
+  - :uint32
+  - :netscalerIcaSessionSetupTime
+  210:
+  - :string
+  - :netscalerIcaServerName
+  214:
+  - :uint8
+  - :netscalerIcaSessionReconnects
+  215:
+  - :uint32
+  - :netscalerIcaRTT
+  216:
+  - :uint32
+  - :netscalerIcaClientsideRXBytes
+  217:
+  - :uint32
+  - :netscalerIcaClientsideTXBytes
+  219:
+  - :uint16
+  - :netscalerIcaClientsidePacketsRetransmit
+  220:
+  - :uint16
+  - :netscalerIcaServersidePacketsRetransmit
+  221:
+  - :uint32
+  - :netscalerIcaClientsideRTT
+  222:
+  - :uint32
+  - :netscalerIcaServersideRTT
+  223:
+  - :uint32
+  - :netscalerIcaSessionUpdateBeginSec
+  224:
+  - :uint32
+  - :netscalerIcaSessionUpdateEndSec
+  225:
+  - :uint32
+  - :netscalerIcaChannelId1
+  226:
+  - :uint32
+  - :netscalerIcaChannelId1Bytes
+  227:
+  - :uint32
+  - :netscalerIcaChannelId2
+  228:
+  - :uint32
+  - :netscalerIcaChannelId2Bytes
+  229:
+  - :uint32
+  - :netscalerIcaChannelId3
+  230:
+  - :uint32
+  - :netscalerIcaChannelId3Bytes
+  231:
+  - :uint32
+  - :netscalerIcaChannelId4
+  232:
+  - :uint32
+  - :netscalerIcaChannelId4Bytes
+  233:
+  - :uint32
+  - :netscalerIcaChannelId5
+  234:
+  - :uint32
+  - :netscalerIcaChannelId5Bytes
+  235:
+  - :uint16
+  - :netscalerIcaConnectionPriority
+  236:
+  - :uint32
+  - :netscalerApplicationStartupDuration
+  237:
+  - :uint16
+  - :netscalerIcaLaunchMechanism
+  238:
+  - :string
+  - :netscalerIcaApplicationName
+  239:
+  - :uint32
+  - :netscalerApplicationStartupTime
+  240:
+  - :uint16
+  - :netscalerIcaApplicationTerminationType
+  241:
+  - :uint32
+  - :netscalerIcaApplicationTerminationTime
+  242:
+  - :uint32
+  - :netscalerIcaSessionEndTime
+  243:
+  - :uint32
+  - :netscalerIcaClientsideJitter
+  244:
+  - :uint32
+  - :netscalerIcaServersideJitter
+  245:
+  - :uint32
+  - :netscalerIcaAppProcessID
+  246:
+  - :string
+  - :netscalerIcaAppModulePath
+  247:
+  - :uint32
+  - :netscalerIcaDeviceSerialNo
+  248:
+  - :string
+  - :netscalerMsiClientCookie
+  249:
+  - :uint64
+  - :netscalerIcaFlags
+  250:
+  - :string
+  - :netscalerIcaUsername
+  251:
+  - :uint8
+  - :netscalerLicenseType
+  252:
+  - :uint64
+  - :netscalerMaxLicenseCount
+  253:
+  - :uint64
+  - :netscalerCurrentLicenseConsumed
+  254:
+  - :uint32
+  - :netscalerIcaNetworkUpdateStartTime
+  255:
+  - :uint32
+  - :netscalerIcaNetworkUpdateEndTime
+  256:
+  - :uint32
+  - :netscalerIcaClientsideSRTT
+  257:
+  - :uint32
+  - :netscalerIcaServersideSRTT
+  258:
+  - :uint32
+  - :netscalerIcaClientsideDelay
+  259:
+  - :uint32
+  - :netscalerIcaServersideDelay
+  260:
+  - :uint32
+  - :netscalerIcaHostDelay
+  261:
+  - :uint16
+  - :netscalerIcaClientSideWindowSize
+  262:
+  - :uint16
+  - :netscalerIcaServerSideWindowSize
+  263:
+  - :uint16
+  - :netscalerIcaClientSideRTOCount
+  264:
+  - :uint16
+  - :netscalerIcaServerSideRTOCount
+  265:
+  - :uint32
+  - :netscalerIcaL7ClientLatency
+  266:
+  - :uint32
+  - :netscalerIcaL7ServerLatency
+  267:
+  - :string
+  - :netscalerHttpDomainName
+  268:
+  - :uint32
+  - :netscalerCacheRedirClientConnectionCoreID
+  269:
+  - :uint32
+  - :netscalerCacheRedirClientConnectionTransactionID
