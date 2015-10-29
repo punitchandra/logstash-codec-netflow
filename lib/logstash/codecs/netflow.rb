@@ -349,7 +349,7 @@ class LogStash::Codecs::Netflow < LogStash::Codecs::Base
       fields.each do |field|
         if field[0] == :string and field[2].has_key?(:length)
           if field[2][:length] == 0xffff
-            @logger.warn("field #{field[1]} is varaible length, i= #{i} the string is #{record.flowset_data.unpack('H*')}   fields = #{fields}")
+            #@logger.warn("field #{field[1]} is varaible length, i= #{i} the string is #{record.flowset_data.unpack('H*')}   fields = #{fields}")
             if record.flowset_data[i, i+1].unpack('C')[0] == 255
                 l.push([:uint8, nil])
                 l.push([:uint16, nil])
